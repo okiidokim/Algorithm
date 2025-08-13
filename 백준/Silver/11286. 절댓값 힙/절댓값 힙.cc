@@ -16,15 +16,11 @@ int main() {
                 cout << 0 <<"\n";
             }
             else {
-                cout << pq.top().first * pq.top().second <<"\n";
+                cout << pq.top().second <<"\n";
                 pq.pop();
             }
             continue;
         }
-        if (num > 0) {
-            pq.push({num, 1});
-        } else {
-            pq.push({abs(num), -1});
-        }
+        pq.push({abs(num), num});
     }
 }

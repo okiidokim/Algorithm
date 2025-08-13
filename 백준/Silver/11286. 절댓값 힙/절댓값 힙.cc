@@ -3,42 +3,28 @@
 using namespace std;
 
 int main() {
-    ios::sync_with_stdio(0);
-    cin.tie(NULL); cout.tie(NULL);
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
     int n;
     cin >> n;
-    priority_queue<int> qminus; //음수
-    priority_queue<int, vector<int>, greater<int>> q; //양수
+    priority_queue<pair<int,int>, vector<pair<int,int>>, greater<pair<int,int>>> pq;
     for (int i = 0; i < n; i++) {
-        int a;
-        cin >> a;
-        if (a == 0) {
-            if (qminus.empty() && q.empty()) {
-                cout << 0 << "\n";
-                continue;
-            }
-            if (qminus.empty()) {
-                cout << q.top() << "\n";
-                q.pop();
-                continue;
-            }
-            if (q.empty()) {
-                cout << qminus.top() << "\n";
-                qminus.pop();
-                continue;
-            }
-            if (abs(qminus.top()) > q.top()) {
-                cout << q.top() << "\n";
-                q.pop();
+        int num;
+        cin >> num;
+        if (num == 0) {
+            if (pq.empty()) {
+                cout << 0 <<"\n";
             }
             else {
-                cout << qminus.top() << "\n";
-                qminus.pop();
+                cout << pq.top().first * pq.top().second <<"\n";
+                pq.pop();
             }
+            continue;
         }
-        else {
-            if (a < 0) qminus.push(a);
-            else q.push(a);
+        if (num > 0) {
+            pq.push({num, 1});
+        } else {
+            pq.push({abs(num), -1});
         }
     }
 }

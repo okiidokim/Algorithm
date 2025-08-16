@@ -2,7 +2,6 @@
 
 #include<iostream>
 #include<queue>
-#include<deque>
 #include<math.h>
 using namespace std;
 
@@ -25,7 +24,6 @@ int main() {
     string s;
     cin >> s;
     int res = 0;
-    deque<int> dq;
     bool oper = true;
     for (int i = 0; i < s.size(); i++) {
         if (s[i] >= '0' && s[i] <= '9') {

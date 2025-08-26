@@ -1,7 +1,6 @@
 function solution(answers) {
     var answer = [];
-    let cnts = new Array(3);
-    cnts.fill(0);
+    let cnts = [0,0,0];
     const stu3 = {
         0 : 3,
         1 : 3,

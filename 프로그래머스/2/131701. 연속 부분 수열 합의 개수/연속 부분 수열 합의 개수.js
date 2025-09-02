@@ -1,12 +1,14 @@
 function solution(elements) {
+    const size = elements.length;
+    const ele = elements.concat(elements);
+    const newArr = new Array(2*size+1).fill(0);
+    for (let i = 0; i < ele.length; i++) {
+        newArr[i+1] = ele[i] + newArr[i];
+    }
     let set = new Set();
-    for (let i = 1; i < elements.length + 1; i++) {
-        for (let j = 0; j < elements.length; j++) {
-            let sum = 0;
-            for (let k = 0; k < i; k++) {
-                const index = (j+k) % elements.length;
-                sum += elements[index];
-            }
+    for (let i = 1; i <= size; i++) {
+        for (let j = 0; j < size; j++) {
+            const sum = newArr[j + i] - newArr[i];
             set.add(sum);
         }
     }

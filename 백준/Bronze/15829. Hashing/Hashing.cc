@@ -3,14 +3,24 @@
 using namespace std;
 
 int main() {
-    int n;
+    ios_base::sync_with_stdio(0);
+    cin.tie(0);
+
+    int r = 31;
+    int m = 1234567891;
+
+    int l;
     string str;
-    cin >> n;
+    cin >> l;
     cin >> str;
-    int hashResult = 0;
-    for (int i  = 0;i < str.length(); i++) {
-        int charNum = str[i] - 'a' + 1;
-        hashResult += charNum * pow(31, i);
+
+    long long answer = 0;
+    long long currPow = 1;
+
+    for (int i = 0; i < l; i++) {
+        int curr = str[i] - 'a' + 1;
+        answer = (answer + curr * currPow) % m;
+        currPow = (currPow * r) % m;
     }
-    cout << hashResult % 1234567891;
+    cout << answer;
 }

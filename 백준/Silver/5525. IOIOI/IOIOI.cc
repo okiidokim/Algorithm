@@ -1,18 +1,24 @@
 #include<iostream>
-#include<string>
 using namespace std;
 
 int main() {
-    int n, len;
-    string s;
-    cin >> n; cin >> len; cin >> s;
-    string p = "I";
-    for (int i = 0; i < n; i++) p+= "OI";
+    ios::sync_with_stdio(0);
+    cin.tie(0);
 
-    int answer = 0;
-    for (int i = 0; i < len-p.length()+1; i++) {
-        string tmp = s.substr(i, p.length());
-        if (tmp == p) answer++;
+    int N, M;
+    string s;
+    cin >> N >> M >> s;
+
+    int ans = 0, run = 0;
+    for (int i = 0; i + 2 < M; ) {
+        if (s[i] == 'I' && s[i+1] == 'O' && s[i+2] == 'I') {
+            run++;
+            if (run >= N) ans++;
+            i += 2;
+        } else {
+            run = 0;
+            i++;
+        }
     }
-    cout << answer;
+    cout << ans;
 }

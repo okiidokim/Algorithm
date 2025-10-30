@@ -6,6 +6,9 @@
 using namespace std;
 
 int main() {
+    ios_base::sync_with_stdio(0);
+    cin.tie(0); cout.tie(0);
+    
     int n, m, x; //학생 번호, 길 수, 모임 위치
     cin >> n >> m >> x;
 

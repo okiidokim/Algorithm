@@ -1,7 +1,6 @@
 // 14:30 ~ 15:15
 #include<iostream>
 #include<vector>
-#include<climits>
 using namespace std;
 
 vector<int> v;
@@ -25,5 +24,5 @@ int main() {
     while (cin >> number) {
         v.push_back(number);
     }
-    postOrder(INT_MIN, INT_MAX);
+    postOrder(0, 1000000);
 }
